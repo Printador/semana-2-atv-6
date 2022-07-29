@@ -2,10 +2,22 @@ import datetime
 from datetime import date 
 
 nome = input('Qual seu nome?: ')
-dia = int(input('Qual seu dia de nascimento?: '))
-mes = int(input('Qual seu mês de nascimento?: '))
-ano = int(input('Qual seu ano de nascimento?: '))
 
+dia = int(input('Qual seu dia de nascimento?: '))
+while (dia == 0 or dia >= 32):
+  print('Dia inexistente, digite um número entre 1 e 31.')
+  dia = int(input('Qual seu dia de nascimento?: '))
+
+mes = int(input('Qual seu mês de nascimento?: '))
+while (mes == 0 or mes >= 13):
+  print('Por favor, digite um número correspondente ao seu mês de nascimento, entre 1 e 12.')
+  mes = int(input('Qual seu mês de nascimento?: '))
+
+ano = int(input('Qual seu ano de nascimento?: '))
+while (ano <= 1921 or ano >= 2022):
+  print('Ano inválido, insira uma data entre 1922 a 2021.')
+  ano = int(input('Qual seu ano de nascimento?: '))
+ 
 nascimento = datetime.date(ano, mes, dia)
 idade = (date.today() - nascimento)
 
